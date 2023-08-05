@@ -1,0 +1,37 @@
+body {
+  margin: 0;
+}
+
+.banner {
+  background-color: gray;
+  padding: 10px;
+}
+
+.banner h1 {
+  color: white;
+  text-align: center;
+}
+
+.banner p {
+  color: white;
+  text-align: center;
+  padding-bottom: 2em;
+}
+
+.data-entry {
+  width: 80%;
+  margin: auto;
+}
+
+.btn-light,
+.btn-light:hover,
+.btn-light:focus {
+  color: #333;
+  text-shadow: none;
+}
+
+.nav-tabs {
+  font-size: 12px;
+  font-family: Verdana, Geneva, sans-serif;
+}
+
