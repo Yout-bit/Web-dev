@@ -1,7 +1,9 @@
 <?php 
-$title = "Home";
+$title = "home";
 include 'inc/header.php';
+include 'inc/navbar.php';
 ?>
+
 <div class="body">
   <div class="tab-content" id="logincontent">
     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">Home</div>
@@ -11,5 +13,5 @@ include 'inc/header.php';
 </div>  
 
 <?php
-include "footer.php";  
+include "inc/footer.php";  
 ?>
