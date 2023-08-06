@@ -3,55 +3,39 @@ $title = "register";
 include 'inc/header.php';
 include 'inc/navbar.php';
 ?>
-<script>
-    function jsDropDown(img, folder, newimg) {
-        document.getElementById(img).src = "res/" + folder + "/" + newimg + ".png"
-    }
-</script>
+
 <div class="data-entry d-flex p-3 mb-2 bg-light text-dark">
-    <form class="needs-validation" novalidate action="src/register.php" method="GET">
+    <form class="needs-validation" novalidate action="register.php" method="GET">
 
         <label for="Username">Username</label>
-        <input type="username" class="form-control" id="username" placeholder="Username" name="username"required pattern="[A-Za-z0-9]+">
+        <input type="username" class="form-control" id="username" placeholder="Username" name="username" required>
 
         <p></p>
         <h3>Avatar</h3>
-        
-        <div class="dropdown" style="display:inline">
-            <button class="btn btn-secondary dropdown-toggle m-1" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Skin
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="javascript:jsDropDown('skin', 'skin', 'green');">Green</a>
-                <a class="dropdown-item" href="javascript:jsDropDown('skin', 'skin', 'red');">Red</a>
-                <a class="dropdown-item" href="javascript:jsDropDown('skin', 'skin', 'yellow');">Yellow</a>
-            </div>
-        </div>
-        <div class="dropdown" style="display:inline">
-            <button class="btn btn-secondary dropdown-toggle m-1" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Mouth
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="javascript:jsDropDown('mouth', 'mouth', 'open');">Open</a>
-                <a class="dropdown-item" href="javascript:jsDropDown('mouth', 'mouth', 'sad');">Sad</a>
-                <a class="dropdown-item" href="javascript:jsDropDown('mouth', 'mouth', 'smiling');">Smiling</a>
-                <a class="dropdown-item" href="javascript:jsDropDown('mouth', 'mouth', 'straight');">Straight</a>
-                <a class="dropdown-item" href="javascript:jsDropDown('mouth', 'mouth', 'surprise');">Surprise</a>
-                <a class="dropdown-item" href="javascript:jsDropDown('mouth', 'mouth', 'teeth');">Teeth</a>
-            </div>
-        </div>
-        <div class="dropdown" style="display:inline">
-            <button class="btn btn-secondary dropdown-toggle m-1" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Eyes
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="javascript:jsDropDown('eyes', 'eyes', 'closed');">Closed</a>
-                <a class="dropdown-item" href="javascript:jsDropDown('eyes', 'eyes', 'laughing');">Laughing</a>
-                <a class="dropdown-item" href="javascript:jsDropDown('eyes', 'eyes', 'long');">Long</a>
-                <a class="dropdown-item" href="javascript:jsDropDown('eyes', 'eyes', 'normal');">Normal</a>
-                <a class="dropdown-item" href="javascript:jsDropDown('eyes', 'eyes', 'rolling');">Rolling</a>
-                <a class="dropdown-item" href="javascript:jsDropDown('eyes', 'eyes', 'winking');">Winking</a>
-            </div>
+        <div class="form-group">
+            <select class="form-select" name="skin" onchange="jsDropDown('skin', 'skin', this.value)">
+                <option class="dropdown-item" value="green" selected="selected">Green</option>
+                <option class="dropdown-item" value="red">Red</option>
+                <option class="dropdown-item" value="yellow" >Yellow</option>
+            </select>
+
+            <select class="form-select" name="mouth" onchange="jsDropDown('mouth', 'mouth', this.value)">
+                <option class="dropdown-item" value="open" selected="selected">Open</option>
+                <option class="dropdown-item" value="sad">Sad</option>
+                <option class="dropdown-item" value="smiling">Smiling</option>
+                <option class="dropdown-item" value="straight">Straight</option>
+                <option class="dropdown-item" value="surprise">Surprise</option>
+                <option class="dropdown-item" value="teeth">Teeth</option>
+            </select>
+
+            <select class="form-select" name="eyes" onchange="jsDropDown('eyes', 'eyes', this.value)">
+                <option class="dropdown-item" value="closed" selected="selected">Closed</option>
+                <option class="dropdown-item" value="laughing">Laughing</option>
+                <option class="dropdown-item" value="long">Long</option>
+                <option class="dropdown-item" value="normal">Normal</option>
+                <option class="dropdown-item" value="rolling">Rolling</option>
+                <option class="dropdown-item" value="winking">Winking</option>
+            </select>
         </div>
         <p></p>
         <div class="parent" >
@@ -63,6 +47,27 @@ include 'inc/navbar.php';
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 </div>
+
+<script>
+    function jsDropDown(img, folder, newimg) {
+        document.getElementById(img).src = "res/" + folder + "/" + newimg + ".png"
+    }   
+    (function () {
+  'use strict'
+    var forms = document.querySelectorAll('.needs-validation')
+    Array.prototype.slice.call(forms)
+        .forEach(function (form) {
+        form.addEventListener('submit', function (event) {
+            if (!form.checkValidity()) {
+            event.preventDefault()
+            event.stopPropagation()
+            }
+
+            form.classList.add('was-validated')
+        }, false)
+        })
+    })()
+</script>
 
 <?php
 include "inc/footer.php";  
