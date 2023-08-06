@@ -64,8 +64,8 @@ body {
 
 .image3 {
   position: absolute;
-  left: 0px;
-  top: 0px;
+  left: -15px;
+  top: -15px;
 }
 
 .navImg {
@@ -79,4 +79,97 @@ body {
   display: inline-block;
   width: auto;
   vertical-align: middle;
+}
+
+/* CSS styling for the game container */
+#game-container {
+  background-color: grey;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+  padding: 20px; /* Add some padding for spacing */
+}
+
+/* Additional CSS for grid layout */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* 5 columns */
+  grid-gap: 10px; /* Gap between cards */
+  justify-content: center; /* Center the cards horizontally */
+}
+
+/* CSS for the cards and emojis */
+.card-container {
+  perspective: 1000px; /* Add 3D perspective for the flip animation */
+  margin: 10px; /* Adjust margin for spacing */
+  width: 100px; /* Set card container width */
+  height: 100px; /* Set card container height */
+  position: relative;
+  cursor: pointer;
+}
+
+.card {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  flex-flow: column;
+  flex-flow: row;
+  top: 0;
+  left: 0;
+  transition: transform 0.5s; /* Add transition for smooth flip animation */
+  transform-style: preserve-3d; /* Ensure child elements maintain 3D position */
+}
+
+.card-front,
+.card-back {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: hidden; /* Hide backface of the card */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-back {
+  transform: rotateY(180deg); /* Start the card flipped, showing the back */
+  background-color: white; /* Set the card back color */
+  border-radius: 5px; /* Add some border radius for a smooth appearance */
+}
+
+.flipped .card {
+  transform: rotateY(180deg); /* Rotate the card when flipped class is added */
+}
+
+.flipped .card-front {
+  z-index: 1; /* Display the back of the card when flipped */
+}
+
+.flipped .card-back {
+  z-index: 2; /* Display the front of the card when flipped */
+}
+
+.card-img {
+  min-height:0;
+  width: 100%;
+  flex: 1;
+  background: white;
+}
+
+/* CSS for the timer and attempts counter */
+#timer-container {
+  text-align: center;
+  margin-top: 20px;
+  border: 2px solid #333;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #f7f7f7;
+}
+
+#timer {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+#attempts {
+  font-size: 18px;
 }
