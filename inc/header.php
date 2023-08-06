@@ -2,7 +2,7 @@
 <html lang="en" class="h-100" data-bs-theme="auto">
   <head>
     <title>ECM1417 Web Dev | Coursework</title>
-    <link rel="stylesheet" type="text/css" href="./style.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
     <link 
     href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" 
     rel="stylesheet" 
@@ -18,3 +18,4 @@
 
   </head>
   <body>
+  <div class= "main-div">
