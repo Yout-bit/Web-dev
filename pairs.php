@@ -1,10 +1,11 @@
 <?php 
-$title = "home";
+$title = "memory";
 include 'inc/header.php';
 include 'inc/navbar.php';
-setcookie("login", false)
 ?>
-<h1>Home</h1>
+<div class="d-flex p-3 mb-2 bg-light text-dark">
+    <h1>Game</h1>
+</div>
 <?php
 include "inc/footer.php";  
 ?>

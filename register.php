@@ -8,8 +8,8 @@ include 'inc/navbar.php';
         document.getElementById(img).src = "res/" + folder + "/" + newimg + ".png"
     }
 </script>
-<div class="data-entry">
-    <h1>Register</h1>
+<div class="data-entry d-flex p-3 mb-2 bg-light text-dark">
+    <!-- <h1>Register</h1> -->
     <form class="needs-validation" novalidate>
 
         <label for="Username">Username</label>
@@ -54,12 +54,13 @@ include 'inc/navbar.php';
                 <a class="dropdown-item" href="javascript:jsDropDown('eyes', 'eyes', 'winking');">Winking</a>
             </div>
         </div>
+        <p></p>
         <div class="parent" >
             <img src="res/skin/green.png", id="skin" style="width:150px;height:150px;" class="image1">
             <img src="res/eyes/closed.png", id="eyes" style="width:150px;height:150px;" class="image2">
             <img src="res/mouth/open.png", id="mouth" style="width:150px;height:150px;" class="image2">
         </div>
-    
+        <p></p>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 </div>

@@ -1,10 +1,12 @@
 body {
   margin: 0;
-  padding-top: 60px;
 }
 
-.main-div {
-  background-image: url("res\arcade-unsplash.jpg");
+.masthead {
+  background-size: cover;
+  min-height: 100vh;
+  position: relative;
+  color: black;
 }
 
 .banner {
@@ -28,6 +30,7 @@ body {
   margin: auto;
 }
 
+.btn,
 .btn-light,
 .btn-light:hover,
 .btn-light:focus {
