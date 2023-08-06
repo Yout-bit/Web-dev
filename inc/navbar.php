@@ -6,6 +6,7 @@ $login = false;
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
+    <?php getAng()  ?>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ms-left">
@@ -35,7 +36,22 @@ function lastTab() {
         return "leaderboard";
     }
     else {
-        return "register";
+        return "registration";
     }
+}
+ 
+function getAng() {
+    foreach (array("username", "skin", "mouth", "eyes") as $piece) {
+        if (!isset($_COOKIE[$piece])) {
+            return;
+        }
+    }
+    echo 
+    '<div class="parent" >
+        <img src="res/skin/' . $_COOKIE["skin"] . '.png" id="navskin" style="width:50px;height:50px;" class="image1">
+        <img src="res/mouth/' . $_COOKIE["mouth"] . '.png" id="navmouth" style="width:50px;height:50px;" class="image2">
+        <img src="res/eyes/' . $_COOKIE["eyes"] . '.png" id="naveyes" style="width:50px;height:50px;" class="image3">
+
+    </div>';
 }
 ?>

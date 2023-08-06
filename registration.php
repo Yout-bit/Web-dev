@@ -9,11 +9,10 @@ include 'inc/navbar.php';
     }
 </script>
 <div class="data-entry d-flex p-3 mb-2 bg-light text-dark">
-    <!-- <h1>Register</h1> -->
-    <form class="needs-validation" novalidate>
+    <form class="needs-validation" novalidate action="src/register.php" method="GET">
 
         <label for="Username">Username</label>
-        <input type="username" class="form-control" id="username" placeholder="Username" required pattern="[A-Za-z0-9]+">
+        <input type="username" class="form-control" id="username" placeholder="Username" name="username"required pattern="[A-Za-z0-9]+">
 
         <p></p>
         <h3>Avatar</h3>

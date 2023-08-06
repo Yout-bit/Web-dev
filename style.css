@@ -59,4 +59,18 @@ body {
 .image2 {
   position: absolute;
   left: 0px;
+  top: 0px;
+}
+
+.image3 {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.navImg {
+  margin: 1%;
+  position: relative;
+  top: 0;
+  left: 0;
 }
