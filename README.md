@@ -1,5 +1,6 @@
 # ECM1417 - August 2023 - Referred/deferred assessment
 ### Che Barber - 720008992
+I couldnt login to the Azure lab VM, and left ti to late to do anything about it. However you can access the website at http://ecm1417-720008992.com/ecm1417-720008992/pairs.php (The home page seems to be broken when hosted here)
 Features :
  - navbar, that changes based on whether the user is registered, changeing the buttons and displaying the avvatar
  - Landing page , `index.php` that changes based on wheteher a user is registered and has option to logout
