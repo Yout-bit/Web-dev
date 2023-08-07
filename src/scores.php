@@ -8,7 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $username = $data['username'];
         $score = $data['score'];
 
-        $file = fopen('scores.csv', 'a');
+        $file = fopen('res/scores.csv', 'a');
 
         fputcsv($file, array($username, $score));
 

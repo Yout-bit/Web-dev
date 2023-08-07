@@ -12,17 +12,21 @@ setCookiesNoReload(array(
 <html>
    <head>
       <style>
-      bodY {
+      body {
          margin: 0;
          padding: 0;
          box-sizing: border-box;
+
+         background-size: cover;
+         min-height: 100vh;
+         position: relative;
+         color: black;
       }
       .center {
          height: 100vh;
          display: flex;
          justify-content: center;
          align-items: center;
-         background: #000;
       }
       .wave {
          width: 5px;
@@ -31,6 +35,7 @@ setCookiesNoReload(array(
          margin: 10px;
          animation: wave 1s linear infinite;
          border-radius: 20px;
+
       }
       .wave:nth-child(2) {
          animation-delay: 0.1s;
@@ -74,9 +79,8 @@ setCookiesNoReload(array(
       </style>
       <title>HTML Meta Tag</title>
       <meta http-equiv = "refresh" content = "3; url = index.php" />
-      <link rel="stylesheet" type="text/css" href="style.css">
    </head>
-   <body>
+   <body style="background-image: url(res/arcade-unsplash.jpg);">
       
       <div class="center">
          <div class="wave"></div>

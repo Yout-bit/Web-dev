@@ -19,7 +19,7 @@ include 'inc/navbar.php';
             <?php
             // Read the scores.csv file and store the data in an array
             $scores = [];
-            if (($handle = fopen('src/scores.csv', 'r')) !== false) {
+            if (($handle = fopen('src/res/scores.csv', 'r')) !== false) {
                 while (($data = fgetcsv($handle)) !== false) {
                     $scores[] = array('username' => $data[0], 'score' => $data[1]);
                 }
