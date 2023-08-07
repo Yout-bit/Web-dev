@@ -3,7 +3,6 @@ $title = "home";
 include 'inc/header.php';
 include 'inc/navbar.php';
 include 'src/utils.php';
-include 'src/scores.php';
 ?>
 <div class="d-flex p-3 mb-2 bg-light text-dark">
   <?php
@@ -12,7 +11,6 @@ include 'src/scores.php';
   } else {
     include 'inc\welomenotlogin.php';
   }
-
   ?>
 
 </div>

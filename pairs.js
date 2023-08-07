@@ -78,6 +78,17 @@ function handleCardClick(cardContainer, emoji) {
     }
 }
 
+// Function to calculate the score based on time and attempts
+function calculateScore(time, attempts) {
+    const timeWeight = 0.6;
+    const attemptsWeight = 0.4;
+
+    const timeInSeconds = time / 1000;
+    const score = (1 / (timeInSeconds + 1)) * (1 / (attempts + 1));
+
+    return score * 10000000;
+}
+
 // Function to shuffle an array
 function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
@@ -192,12 +203,16 @@ function endGame() {
     const timeTaken = formatTime(timeElapsed);
 
     const gameContainer = document.getElementById('game-container');
+    const score = calculateScore(timeElapsed, attempts); // Calculate the score
+    const scoreFormatted = score.toFixed(2); // Format the score to two decimal places
+
     gameContainer.innerHTML = `
         <h2>Congratulations! You completed the game.</h2>
         <p>Attempts: ${attempts}</p>
         <p>Time taken: ${timeTaken}</p>
-        <button class="btn btn-primary" id="play-again-button">Play Again</button>
-        <button class="btn btn-secondary" id="submit-score-button">Submit Score</button>
+        <p>Score: ${scoreFormatted}</p>
+        <button class="btn btn-primary" onclick="location.reload()">Play Again</button>
+        <button class="btn btn-secondary" onclick="submitScore()">Submit Score</button>
     `;
 
     // Add event listeners for the end screen buttons
@@ -208,14 +223,50 @@ function endGame() {
 
     const submitScoreButton = document.getElementById('submit-score-button');
     submitScoreButton.addEventListener('click', () => {
-        submitScore(); // Call the function to submit the score (You need to implement this function)
+        submitScore(); 
     });
 }
 
-// Function to submit the score (You can implement this to send the score to the server)
+
+// Function to submit the score to the server
 function submitScore() {
-    // Implement the logic to send the score to the server here
-    // For example, using a fetch API to make a POST request to the server
+    const currentTime = Date.now();
+    const timeElapsed = currentTime - startTime;
+    const score = calculateScore(timeElapsed, attempts);
+
+    const username = getCookie('username');
+
+    // Data to send to the server
+    const data = {
+        username: username,
+        score: score,
+    };
+
+    // Send a POST request to scores.php
+    fetch('src/scores.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+    .then((response) => {
+        if (response.ok) {
+            alert('Score submitted successfully!');
+        } else {
+            alert('Failed to submit score.');
+        }
+    })
+    .catch((error) => {
+        alert('An error occurred while submitting the score.');
+    });
+}
+
+// Function to get the value of a cookie by name
+function getCookie(name) {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop().split(';').shift();
 }
 
 // Event listener for the start button
